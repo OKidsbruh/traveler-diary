@@ -31,8 +31,18 @@ def count_entries(diary):
     """Повертає загальну кількість записів у щоденнику."""
     return len(diary)
 
+def entries_with_word():
+    """Повертає список записів, які містять задане слово."""
+    word = input("Введи слово: ")
+    print(f"Записи, які містять слово '{word}':")
+    for entry in diary:
+        if word in entry["text"]:
+            print(f"День {entry['day']}: {entry['text']}")
+    return
+
 # Основна частина
 print_diary(diary)
 add_entry(diary)
 print_diary(diary)
+entries_with_word()
 print(f"Всього записів: {count_entries(diary)}")
